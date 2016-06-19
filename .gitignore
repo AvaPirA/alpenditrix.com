@@ -173,4 +173,4 @@ fabric.properties
 
 ##################################
 
-/vendor
+vendor/
