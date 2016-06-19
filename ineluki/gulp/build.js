@@ -87,11 +87,11 @@ gulp.task('copy-deps', function() {
     .pipe(gulp.dest(path.join(conf.dist, 'vendor')));
 });
 
-gulp.task('clean', function() {
-  return require('del')(ultimateWC(conf.dist)).then(paths => {
-      	console.log('Deleted files and folders:\n', paths.join('\n'));
-      });
-})
+gulp.task('clean', function () {
+    return require('del')(ultimateWC(conf.dist)).then(function (paths) {
+        console.log('Deleted files and folders:\n', paths.join('\n'));
+    });
+});
 
 function ultimateWC(uri) {
   return wildcard(wildcardFull(uri));
@@ -106,13 +106,9 @@ function wildcard(uri, ext) {
 }
 
 function wildcardFull(uri, ext) {
-  if (ext) {
-    return path.join(path.join(uri, '**'), '*.'+ext);
-  } else {
-    return path.join(uri, '**');
-  }
+    if (ext) {
+        return path.join(path.join(uri, '**'), '*.' + ext);
+    } else {
+        return path.join(uri, '**');
+    }
 }
-
-gulp.task('kek', function(){
-  console.log(require('./conf'));
-})
