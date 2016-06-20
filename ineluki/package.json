@@ -37,7 +37,10 @@
     "main-bower-files": "^2.13.1",
     "phantomjs": "~1.9.18",
     "wiredep": "^4.0.0",
-    "wrench": "^1.5.9"
+    "wrench": "^1.5.9",
+    "gulp-concat": "latest",
+    "browser-sync-spa": "latest",
+    "browser-sync": "latest"
   },
   "scripts": {
     "postinstall": "bower install"

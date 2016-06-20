@@ -1,13 +1,13 @@
 {
-  "src"      : "app",
-  "dist"     : "build/dist",
-  "serve"      : "build/serve",
-  "vendor"   : "vendor",
-  "wiredep"  : {
-      "exclude": [
-        "/jquery/",
-        "/\\/bootstrap\\.js$/"
-      ],
-      "directory": "vendor"
-    }
+  "src": "app",
+  "dist": "build/dist",
+  "serve": "build/serve",
+  "vendor": "vendor",
+  "wiredep": {
+    "exclude": [
+      "/jquery/",
+      "/\\/bootstrap\\.js$/"
+    ],
+    "directory": "vendor"
+  }
 }

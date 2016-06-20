@@ -45,10 +45,10 @@ browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }));
 
-gulp.task('serve', ['watch'], function () {
-  browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
+gulp.task('serve', ['watch'], function() {
+  browserSyncInit(conf.dist);
 });
 
-gulp.task('serve:dist', ['inject'], function () {
+gulp.task('serve:dist', ['inject'], function() {
   browserSyncInit(conf.dist);
 });

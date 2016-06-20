@@ -10,27 +10,31 @@ function isOnlyChange(event) {
   return event.type === 'changed';
 }
 
-gulp.task('watch', ['inject'], function () {
+gulp.task('watch', ['inject'], function() {
 
-  gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject']);
+  gulp.watch([path.join(conf.src, '/*.html'), 'bower.json'], ['inject']);
 
-  gulp.watch(path.join(conf.paths.src, '/app/**/*.css'), function(event) {
-    if(isOnlyChange(event)) {
-      browserSync.reload(event.path);
+  gulp.watch(path.join(conf.src, '**/*.less'), function(event) {
+    if (isOnlyChange(event)) {
+      gulp.start('css')
     } else {
       gulp.start('inject');
     }
   });
 
-  gulp.watch(path.join(conf.paths.src, '/app/**/*.js'), function(event) {
-    if(isOnlyChange(event)) {
-      gulp.start('scripts');
+  gulp.watch(path.join(conf.src, '**/*.js'), function(event) {
+    if (isOnlyChange(event)) {
+      gulp.start('js');
     } else {
       gulp.start('inject');
     }
   });
 
-  gulp.watch(path.join(conf.paths.src, '/app/**/*.html'), function(event) {
-    browserSync.reload(event.path);
+  gulp.watch(path.join(conf.src, '**/*.html'), function(event) {
+    if (isOnlyChange(event)) {
+      gulp.start('templates');
+    } else {
+      gulp.start('inject');
+    }
   });
 });
