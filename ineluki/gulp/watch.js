@@ -16,25 +16,29 @@ gulp.task('watch', ['inject'], function() {
 
   gulp.watch(path.join(conf.src, '**/*.less'), function(event) {
     if (isOnlyChange(event)) {
-      gulp.start('css')
+      startAndReload('css');
     } else {
-      gulp.start('inject');
+      startAndReload('inject');
     }
   });
 
   gulp.watch(path.join(conf.src, '**/*.js'), function(event) {
     if (isOnlyChange(event)) {
-      gulp.start('js');
+      startAndReload('js');
     } else {
-      gulp.start('inject');
+      startAndReload('inject');
     }
   });
 
   gulp.watch(path.join(conf.src, '**/*.html'), function(event) {
     if (isOnlyChange(event)) {
-      gulp.start('templates');
+      startAndReload('templates');
     } else {
-      gulp.start('inject');
+      startAndReload('inject');
     }
   });
+
+  function startAndReload(task) {
+    var p = gulp.start(task, browserSync.reload);
+  }
 });

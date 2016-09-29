@@ -10,14 +10,19 @@
       $urlRouterProvider.otherwise('/');
 
       $stateProvider
-        .state('dummy', {
-          url: "",
+        .state('blog', {
+          url: "/blog",
           views: {
-            "main": {
+            'main': {
+              templateUrl: "route/blog/main.html"
+            }
+          }
+        })
+        .state('dummy', {
+          url: "/",
+          views: {
+            'main': {
               templateUrl: "route/dummy/main.html"
-            },
-            "footer": {
-              templateUrl: "route/dummy/footer.html"
             }
           }
         });
