@@ -11,7 +11,7 @@
 
       $stateProvider
         .state('blog', {
-          url: "/blog",
+          url: "/test",
           views: {
             'main': {
               templateUrl: "route/blog/main.html"

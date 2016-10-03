@@ -7,17 +7,21 @@
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",
+    "browser-sync": "latest",
+    "browser-sync-spa": "latest",
     "del": "^2.2.0",
     "event-stream": "^3.3.2",
     "gulp": "~3.9.0",
     "gulp-angular-filesort": "^1.1.1",
     "gulp-angular-templatecache": "^1.8.0",
     "gulp-clean-css": "^2.0.8",
+    "gulp-concat": "latest",
     "gulp-eslint": "^2.0.0",
     "gulp-htmlmin": "^2.0.0",
     "gulp-inject": "^4.1.0",
     "gulp-karma": "0.0.5",
     "gulp-less": "^3.1.0",
+    "gulp-less-import": "^1.0.0",
     "gulp-minify-html": "^1.0.6",
     "gulp-ng-annotate": "^2.0.0",
     "gulp-rev": "^7.0.0",
@@ -37,10 +41,7 @@
     "main-bower-files": "^2.13.1",
     "phantomjs": "~1.9.18",
     "wiredep": "^4.0.0",
-    "wrench": "^1.5.9",
-    "gulp-concat": "latest",
-    "browser-sync-spa": "latest",
-    "browser-sync": "latest"
+    "wrench": "^1.5.9"
   },
   "scripts": {
     "postinstall": "bower install"

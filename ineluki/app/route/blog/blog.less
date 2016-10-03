@@ -1,17 +1,141 @@
-@header-height: 40px;
+body {
+  body {
+    background-color: @grey;
+    padding: 0;
+    margin: 0;
+  }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 10%;
-  width: 80%;
-  height: @header-height;
-  background-color: #4f4f4f;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
+  .header {
+    width: 100%;
+    z-index: 900;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-.main-wrapper {
-  margin-top: @header-height;
+    .back {
+      z-index: 900;
+      position: absolute;
+      width: 100%;
+      height: @header-back-height;
+      background-color: @grey-light;
+    }
+
+    .logo-bg {
+      z-index: 999;
+
+      position: fixed;
+      width: @header-logo-width;
+      height: @header-height;
+      background-color: @grey-dark;
+    }
+
+    .logo-wrapper {
+      z-index: 1000;
+      position: relative;
+
+      color: @brand-pink;
+      font: 2rem/2rem Federo, serif;
+
+      height: 2.5rem;
+      padding-top: 1.5rem;
+
+      width: 69rem;
+      padding-left: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .main-wrapper {
+    z-index: 500;
+    position: relative;
+    width: 69rem;
+    padding-left: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: @header-height;
+    padding-top: 1rem;
+
+    .menu {
+      z-index: 0;
+      display: inline-block;
+      width: @menu-logo-width;
+      vertical-align: top;
+
+      .logo {
+        width: @menu-logo-width;
+        height: @menu-logo-height;
+        background-color: @grey-dark;
+      }
+      .navigator > ul {
+        padding: 0;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        li {
+          z-index: 0;
+
+          padding: 0;
+          margin: 0;
+          list-style-type: none;
+          color: @brand-orange;
+          a {
+            z-index: 0;
+
+            position: relative;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+
+            &:before {
+              content: '>';
+              // to make &gt; not to be underlined
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .flow {
+      display: inline-block;
+      width: 46rem;
+      padding-left: 2rem;
+
+      .post {
+        .material-card-shadow;
+
+        &:hover {
+          .material-card-shadow-floating;
+          .card {
+            border-color: fade(@brand-blue, 50%);
+          }
+        }
+
+        .card {
+          z-index: 200;
+          position: relative;
+          top: -2.5rem;
+          background-color: @grey-dark;
+          border-radius: 2px;
+          height: 23rem;
+          border: 1px solid fade(@brand-green, 50%);
+          transition: border-color @material-transition
+        }
+
+        .title {
+          .material-card-shadow;
+          z-index: 250;
+          position: relative;
+          width: 23rem;
+          margin-left: auto;
+          margin-right: auto;
+          height: 5rem;
+          background: @pink-title;
+        }
+      }
+    }
+
+  }
 }

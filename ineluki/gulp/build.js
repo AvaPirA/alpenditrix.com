@@ -5,6 +5,7 @@ var es = require('event-stream');
 var wiredep = require('wiredep').stream;
 var rev = require('gulp-rev');
 var uglify = require('gulp-uglify');
+var lessImport = require('gulp-less-import');
 var less = require('gulp-less');
 var minifyCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
@@ -29,11 +30,16 @@ function minifyHtmlCooked() {
   });
 }
 
+gulp.task('assets', function() {
+  return gulp.src('app/assets/**')
+    .pipe(gulp.dest(path.join(conf.dist, 'assets')));
+});
+
 gulp.task('css', function() {
   return gulp.src([
-      '!vendor/**',
       'app/**/*.less'
     ])
+    .pipe(lessImport('imported.less'))
     .pipe(less())
     .pipe(concat('styles.css'))
     .pipe(minifyCSS())
@@ -65,7 +71,7 @@ gulp.task('js', ['templates'], function() {
     .pipe(gulp.dest(conf.dist));
 });
 
-gulp.task('inject', ['copy-deps', 'js', 'css'], function() {
+gulp.task('inject', ['copy-deps', 'js', 'css', 'assets'], function() {
   var CSS = gulp.src(wildcard(conf.dist, 'css'), {read: false});
   var JS = gulp.src(wildcard(conf.dist, 'js')).pipe(angularFilesort());
   var BOWER = gulp.src(wildcard(path.join(conf.dist, conf.vendor)), {read: false});
