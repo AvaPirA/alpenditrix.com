@@ -12,37 +12,41 @@ body {
     top: 0;
     left: 0;
 
-    .back {
+    &-bottom {
       z-index: 900;
       position: absolute;
       width: 100%;
-      height: @header-back-height;
+      height: @header-bottom-height;
       background-color: @grey-light;
     }
 
-    .logo-bg {
-      z-index: 999;
+    .logo {
+      &-bg {
+        z-index: 999;
 
-      position: fixed;
-      width: @header-logo-width;
-      height: @header-height;
-      background-color: @grey-dark;
-    }
 
-    .logo-wrapper {
-      z-index: 1000;
-      position: relative;
+        position: fixed;
+        width: 38.3333333%;
+        min-width: 21rem;
+        height: @header-height;
+        background-color: @grey-dark;
+      }
 
-      color: @brand-pink;
-      font: 2rem/2rem Federo, serif;
+      &-text-wrapper {
+        z-index: 1000;
+        position: relative;
 
-      height: 2.5rem;
-      padding-top: 1.5rem;
+        color: @brand-pink;
+        font: 2rem/2rem Federo, serif;
 
-      width: 69rem;
-      padding-left: 1rem;
-      margin-left: auto;
-      margin-right: auto;
+        height: 2.5rem;
+        padding-top: 1.5rem;
+
+        width: 69rem;
+        padding-left: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 
