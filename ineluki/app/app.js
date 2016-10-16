@@ -29,7 +29,7 @@
         });
     }])
     .run(['$rootElement', '$animate', function(appHtmlElement, $animate) {
-      alert(angular.toJson(bowser, 2));
+      // alert(angular.toJson(bowser, 2));
       var redflag = ['mobile', 'tablet', 'ios', 'angdroid', 'samsungBrowser', 'phantom', 'bada', 'tizen', 'ucbrowser', 'webos', 'msie'];
       if(hasOneOf.call(bowser, redflag)) {
         appHtmlElement.find('body').toggleClass('recursive-no-transition');
