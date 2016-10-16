@@ -1,16 +1,17 @@
 body {
-  body {
-    background-color: @grey;
-    padding: 0;
-    margin: 0;
-  }
+  background-color: @grey;
+  padding: 0;
+  margin: 0;
+  min-width: 530px;
 
   .header {
+    //min-width: 530px;
     width: 100%;
     z-index: 900;
     position: fixed;
     top: 0;
     left: 0;
+    .material-card-shadow(none);
 
     &-bottom {
       z-index: 900;
@@ -18,34 +19,107 @@ body {
       width: 100%;
       height: @header-bottom-height;
       background-color: @grey-light;
+
+      filter: drop-shadow(0 0.2rem 1rem rgba(0, 0, 0, 0.3));
     }
 
     .logo {
       &-bg {
         z-index: 999;
 
-
         position: fixed;
-        width: 38.3333333%;
+        width: 38.571428571%; // 21/70 rem
         min-width: 21rem;
         height: @header-height;
         background-color: @grey-dark;
+
+        @media(max-width: 1127px) {
+          width: 100%;
+          min-width: 0;
+        }
       }
 
-      &-text-wrapper {
+      &-wrapper {
         z-index: 1000;
         position: relative;
 
-        color: @brand-pink;
-        font: 2rem/2rem Federo, serif;
+        .header-text(@brand-pink);
 
-        height: 2.5rem;
-        padding-top: 1.5rem;
-
-        width: 69rem;
-        padding-left: 1rem;
+        width: 55.5%;
         margin-left: auto;
         margin-right: auto;
+
+        .title:before {
+          // Logo picture
+          position: absolute;
+          right: 100%;
+          content: url('assets/graphics/logo.png');
+
+          @media(max-width: 1127px) {
+            display:none;
+          }
+        }
+
+        .title .navigation-menu {
+          // Navigation menu on narrow screen
+          display:none;
+          color: @brand-green;
+          cursor: pointer;
+          &:hover {
+            color: @brand-blue;
+            &:active {
+              color: darken(@brand-blue, 5%);
+            }
+          }
+
+          //background-color: #00e5ff;
+          width:2rem;
+          height:2rem;
+          margin-right: 2rem;
+          position: absolute;
+          right: 0;
+          @media (max-width: 1127px) {
+            display: inline-block;
+          }
+          content: '';
+
+          @media (max-width: 529px) {
+
+          }
+        }
+
+        @media(max-width: 1127px) {
+          text-align: center;
+          width: 100%;
+        }
+        @media(max-width: 529px) {
+          text-align: initial;
+        }
+      }
+    }
+
+    .header-text(@color) {
+      height: 2.5rem;
+      padding-top: 1.5rem;
+      padding-left: 1rem;
+      color: @color;
+      font: 2rem/2rem Federo, serif;
+    }
+
+    .locator {
+      .header-text(@brand-orange);
+
+      &-bg {
+        @media(max-width:1127px) {
+          display:none;
+        }
+        z-index: 999;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: @header-height;
+        background-color: @grey-dark;
       }
     }
   }
@@ -60,6 +134,15 @@ body {
 
     margin-top: @header-height;
     padding-top: 1rem;
+
+    @media(max-width:1127px) {
+      width:46rem;
+      padding-right: 1rem;
+    }
+
+    @media(max-width: 775px) {
+      width: inherit;
+    }
 
     .menu {
       z-index: 0;
@@ -100,12 +183,23 @@ body {
           }
         }
       }
+
+      @media(max-width: 1127px) {
+        display: none;
+      }
     }
 
     .flow {
       display: inline-block;
       width: 46rem;
       padding-left: 2rem;
+
+      @media(max-width: 1127px) {
+        padding-left: 0;
+      }
+      @media(max-width: 775px) {
+        width: 100%;
+      }
 
       .post {
         .material-card-shadow;
@@ -129,14 +223,23 @@ body {
         }
 
         .title {
-          .material-card-shadow;
+          .material-card-shadow(none);
           z-index: 250;
           position: relative;
-          width: 23rem;
+          width: 50%;
           margin-left: auto;
           margin-right: auto;
           height: 5rem;
           background: @pink-title;
+
+          @media (max-width: 1752px) {
+            //centered by the flow
+            margin-left: 10.5vw;
+          }
+          @media(max-width: 1127px) {
+            // centered by the card
+            margin-left: auto;
+          }
         }
       }
     }

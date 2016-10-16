@@ -11,19 +11,12 @@ var util = require('util');
 var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
-  browser = browser === undefined ? 'default' : browser;
-
-  var routes = null;
+//  var routes = null;
 //  if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
 //    routes = {
 //      '/bower_components': 'bower_components'
 //    };
 //  }
-
-  var server = {
-    baseDir: baseDir,
-    routes: routes
-  };
 
   /*
    * You can add a proxy to your backend by uncommenting the line below.
@@ -36,8 +29,11 @@ function browserSyncInit(baseDir, browser) {
 
   browserSync.instance = browserSync.init({
     startPath: '/',
-    server: server,
-    browser: browser
+    server: {
+      baseDir: baseDir,
+      routes: null
+    },
+    browser: browser || 'default'
   });
 }
 
