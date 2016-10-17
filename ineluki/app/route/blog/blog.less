@@ -11,7 +11,6 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    .material-card-shadow(none);
 
     &-bottom {
       z-index: 900;
@@ -19,8 +18,7 @@ body {
       width: 100%;
       height: @header-bottom-height;
       background-color: @grey-light;
-
-      filter: drop-shadow(0 0.2rem 1rem rgba(0, 0, 0, 0.3));
+      .material-card-shadow(3px, none);
     }
 
     .logo {
@@ -32,6 +30,7 @@ body {
         min-width: 21rem;
         height: @header-height;
         background-color: @grey-dark;
+        .material-card-shadow(2px, none);
 
         @media(max-width: 1127px) {
           width: 100%;
@@ -120,6 +119,7 @@ body {
         width: 100%;
         height: @header-height;
         background-color: @grey-dark;
+        .material-card-shadow(2px, none);
       }
     }
   }
@@ -202,7 +202,7 @@ body {
       }
 
       .post {
-        .material-card-shadow;
+        .material-card-shadow(1px);
 
         &:hover {
           .material-card-shadow-floating;
@@ -223,7 +223,7 @@ body {
         }
 
         .title {
-          .material-card-shadow(none);
+          .material-card-shadow(1px, none);
           z-index: 250;
           position: relative;
           width: 50%;
